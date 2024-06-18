@@ -86,8 +86,10 @@
               `;
             }
 
+            const value = array[keyGroup][key].replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
             result += `<td class="border border-black p-2">${key}</td>`;
-            result += `<td class="border border-black p-2">${array[keyGroup][key]}</td>`;
+            result += `<td class="border border-black p-2">${value}</td>`;
             result += "</tr>";
 
             row++;
@@ -187,13 +189,14 @@
 
           code = code.slice(matchG4[0].length, code.length);
 
+          console.log(code, matchG4);
           if (code.length !== 0) {
             setInfoMessage("Неизвестный код, конец", "red");
             return;
           }
         }
 
-        result.innerHTML = convert;
+        result.innerText = convert;
         convertToTable(table);
         setInfoMessage("Код успешно обработан", "green");
       }
