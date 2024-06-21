@@ -132,7 +132,7 @@
 
         code = code.slice(matchG1[0].length, code.length);
 
-        const matchG2 = code.match(/(21)(.{13}|.{6})?(240|91|93)/);
+        const matchG2 = code.match(/(21)(.{13}|.{6})(?)(240|91|93)/);
 
         if (matchG2 === null) {
           setInfoMessage("Неизвестный код, вторая группа", "red");
@@ -150,7 +150,7 @@
           "Индивидуальный Серийный Номер (ИСН)": matchG2[2].slice(1),
         };
 
-        code = code.slice(matchG2[1].length + matchG2[2].length, code.length);
+        code = code.slice(matchG2[1].length + matchG2[2].length + matchG2[3].length, code.length);
 
         const matchG3Simple = code.match(/(240|93)(.{4})/);
         const matchG3Long = code.match(/(91)(.{4})?/);
