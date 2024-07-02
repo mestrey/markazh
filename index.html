@@ -53,7 +53,7 @@
       resetInfoMessage();
 
       result.addEventListener("click", () => {
-        navigator.clipboard.writeText(result.innerHTML);
+        navigator.clipboard.writeText(result.innerText);
 
         document.getElementById("copy").classList.remove("hidden");
         setTimeout(() => {
